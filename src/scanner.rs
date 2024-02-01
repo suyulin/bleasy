@@ -371,7 +371,7 @@ impl ScanContext {
 
         match self.passes_pre_connect_filters(&peripheral).await {
             Some(false) => {
-                self.skip_peripheral(&peripheral).await;
+                // self.skip_peripheral(&peripheral).await;
                 return;
             }
             None => {
