@@ -12,11 +12,12 @@ async fn main() -> Result<(), Error> {
     let mut scanner = Scanner::new();
 
     // Start the scanner with default configuration
-    scanner.start(ScanConfig::default().filter_by_name(|x| {
-        println!("x: {:?}", x);
-        x.to_string()
-            .eq("ShellyPlusPlugS-80646FD63E48")
-    })).await?;
+    scanner
+        .start(
+            ScanConfig::default()
+                .filter_by_name(|x| x.to_string().eq("ShellyPlusPlugS-80646FD63E48")),
+        )
+        .await?;
 
     // Create a stream that is provided with device events
     let device = scanner.device_stream().next().await.unwrap();

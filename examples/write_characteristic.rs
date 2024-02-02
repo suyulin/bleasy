@@ -28,7 +28,6 @@ async fn main() -> Result<(), Error> {
 
     let uuid = Uuid::from_str(POWER_UUID).unwrap();
     let power = device.characteristic(uuid).await?.unwrap();
-
     println!("Power: {:?}", power.read().await.unwrap());
 
     power.write_command(&[1]).await.unwrap();
